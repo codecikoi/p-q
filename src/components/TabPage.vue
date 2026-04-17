@@ -8,18 +8,19 @@ const props = defineProps({
 const emit = defineEmits(['update:modelValue'])
 
 const activeIndex = ref(props.modelValue)
-const labelRefs = ref([])
+const tabRefs = ref([])
 const indicatorStyle = ref({})
 
 function updateIndicator() {
-  const label = labelRefs.value[activeIndex.value]
-  if (!label) return
-  const bar = label.closest('.tabpage__bar')
-  const labelRect = label.getBoundingClientRect()
+  const tab = tabRefs.value[activeIndex.value]
+  if (!tab) return
+  const bar = tab.closest('.tabpage__bar')
+  const tabRect = tab.getBoundingClientRect()
   const barRect = bar.getBoundingClientRect()
   indicatorStyle.value = {
-    width: labelRect.width + 'px',
-    transform: `translateX(${labelRect.left - barRect.left}px)`,
+    width: tabRect.width + 'px',
+    height: tabRect.height + 'px',
+    transform: `translateX(${tabRect.left - barRect.left}px)`,
   }
 }
 
@@ -39,18 +40,21 @@ watch(() => props.modelValue, (v) => {
 <template>
   <div class="tabpage">
     <div class="tabpage__bar">
-      <div class="tabpage__indicator" :style="indicatorStyle">
-        <div class="tabpage__ear tabpage__ear--left" />
-        <div class="tabpage__ear tabpage__ear--right" />
-      </div>
+      <img
+        src="/icons/tab-select.svg"
+        alt=""
+        class="tabpage__indicator"
+        :style="indicatorStyle"
+      />
       <button
         v-for="(tab, i) in tabs"
         :key="i"
+        :ref="el => tabRefs[i] = el"
         class="tabpage__tab t-body"
         :class="{ 'tabpage__tab--active': activeIndex === i }"
         @click="select(i)"
       >
-        <span :ref="el => labelRefs[i] = el" class="tabpage__label">{{ tab }}</span>
+        <span class="tabpage__label">{{ tab }}</span>
       </button>
     </div>
 
@@ -62,7 +66,6 @@ watch(() => props.modelValue, (v) => {
 
 <style scoped>
 .tabpage {
-  --tab-r: 14px;
   --tab-bg: rgba(255, 255, 255, 0.22);
   display: flex;
   flex-direction: column;
@@ -79,28 +82,8 @@ watch(() => props.modelValue, (v) => {
   position: absolute;
   bottom: 0;
   left: 0;
-  height: 100%;
-  background: var(--tab-bg);
-  border-radius: var(--tab-r) var(--tab-r) 0 0;
-  transition: transform 0.3s ease, width 0.3s ease;
+  transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
   pointer-events: none;
-}
-
-.tabpage__ear {
-  position: absolute;
-  bottom: 0;
-  width: var(--tab-r);
-  height: var(--tab-r);
-}
-
-.tabpage__ear--left {
-  left: calc(var(--tab-r) * -1);
-  background: radial-gradient(circle at 0 0, transparent var(--tab-r), var(--tab-bg) var(--tab-r));
-}
-
-.tabpage__ear--right {
-  right: calc(var(--tab-r) * -1);
-  background: radial-gradient(circle at 100% 0, transparent var(--tab-r), var(--tab-bg) var(--tab-r));
 }
 
 .tabpage__tab {
@@ -128,5 +111,6 @@ watch(() => props.modelValue, (v) => {
 .tabpage__content {
   background: var(--tab-bg);
   min-height: 200px;
+  margin-top: -4.2px;
 }
 </style>
