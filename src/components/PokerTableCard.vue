@@ -10,7 +10,8 @@ const props = defineProps({
   deco: { type: String, default: '' },
 })
 
-const avatars = ['/avatars/ava1.png', '/avatars/ava2.png', '/avatars/ava3.png', '/avatars/ava4.png']
+const b = import.meta.env.BASE_URL
+const avatars = [b + 'avatars/ava1.png', b + 'avatars/ava2.png', b + 'avatars/ava3.png', b + 'avatars/ava4.png']
 
 const seats = computed(() => {
   const [filled, total] = props.playerCount.split('/').map(Number)
@@ -68,18 +69,18 @@ function seatStyle(index) {
         />
 
         <div class="card__count">
-          <img src="/icons/ic_users.svg" alt="" class="card__count-icon" />
+          <img :src="$base + 'icons/ic_users.svg'" alt="" class="card__count-icon" />
           <span class="card__count-text">{{ playerCount }}</span>
         </div>
       </div>
 
       <div class="card__info">
         <span class="card__info-item">
-          <img src="/icons/ic_time.svg" alt="" class="card__info-icon" />
+          <img :src="$base + 'icons/ic_time.svg'" alt="" class="card__info-icon" />
           <span class="t-caption card__info-time">{{ duration }}</span>
         </span>
         <span class="card__info-item">
-          <img src="/icons/ic_coins.png" alt="" class="card__info-icon" />
+          <img :src="$base + 'icons/ic_coins.png'" alt="" class="card__info-icon" />
           <span class="t-caption">{{ buyIn }}</span>
         </span>
       </div>

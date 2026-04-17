@@ -7,7 +7,7 @@ defineProps({
 <template>
   <div class="seat" :class="avatar ? 'seat--filled' : 'seat--empty'">
     <img v-if="avatar" :src="avatar" alt="" class="seat__img" />
-    <img v-else src="/avatars/no_user.svg" alt="" class="seat__no-user" />
+    <img v-else :src="$base + 'avatars/no_user.svg'" alt="" class="seat__no-user" />
   </div>
 </template>
 

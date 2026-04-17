@@ -7,7 +7,7 @@ defineProps({
 
 <template>
   <button class="pill">
-    <img src="/icons/button_top.svg" alt="" class="pill__bg" />
+    <img :src="$base + 'icons/button_top.svg'" alt="" class="pill__bg" />
     <span class="t-button pill__label">{{ label }}</span>
     <img v-if="icon" :src="icon" alt="" class="pill__icon" />
   </button>

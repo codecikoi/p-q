@@ -1,5 +1,6 @@
 <script setup>
 import { ref, computed, watch } from 'vue'
+const b = import.meta.env.BASE_URL
 import AppBar from './components/AppBar.vue'
 import TabPage from './components/TabPage.vue'
 import GameRow from './components/GameRow.vue'
@@ -15,38 +16,38 @@ function toggleRow(t, i) {
 }
 
 const mockTables = [
-  { name: 'Poker Game Name', playerCount: '7/9', duration: '1h30m/2h', buyIn: '20000买入', deco: '/img_mashroom.png' },
-  { name: 'Poker Game Name', playerCount: '6/8', duration: '1h30m/2h', buyIn: '20000买入', deco: '/img_box_glove.png' },
-  { name: 'Poker Game Name', playerCount: '4/6', duration: '1h30m/2h', buyIn: '20000买入', deco: '/img_black_cards.png' },
+  { name: 'Poker Game Name', playerCount: '7/9', duration: '1h30m/2h', buyIn: '20000买入', deco: b + 'img_mashroom.png' },
+  { name: 'Poker Game Name', playerCount: '6/8', duration: '1h30m/2h', buyIn: '20000买入', deco: b + 'img_box_glove.png' },
+  { name: 'Poker Game Name', playerCount: '4/6', duration: '1h30m/2h', buyIn: '20000买入', deco: b + 'img_black_cards.png' },
   { name: 'Poker Game Name', playerCount: '4/6', duration: '1h30m/2h', buyIn: '20000买入' },
 ]
 
 const allGames = [
-  { image: '/images/img_two_purple.png', label: '德州扑克', blinds: '100/200', tables: '306桌', players: '3406人' },
-  { image: '/images/img_two_blue.png', label: '短牌', blinds: '100/200', tables: '306桌', players: '3406人' },
-  { image: '/images/img_four_cards.png', label: '奥马哈', blinds: '100/200', tables: '306桌', players: '3406人' },
-  { image: '/images/img_two_purple.png', label: '德州扑克', blinds: '200/400', tables: '152桌', players: '1820人' },
-  { image: '/images/img_two_blue.png', label: '短牌', blinds: '200/400', tables: '98桌', players: '970人' },
-  { image: '/images/img_four_cards.png', label: '奥马哈', blinds: '200/400', tables: '210桌', players: '2540人' },
+  { image: b + 'images/img_two_purple.png', label: '德州扑克', blinds: '100/200', tables: '306桌', players: '3406人' },
+  { image: b + 'images/img_two_blue.png', label: '短牌', blinds: '100/200', tables: '306桌', players: '3406人' },
+  { image: b + 'images/img_four_cards.png', label: '奥马哈', blinds: '100/200', tables: '306桌', players: '3406人' },
+  { image: b + 'images/img_two_purple.png', label: '德州扑克', blinds: '200/400', tables: '152桌', players: '1820人' },
+  { image: b + 'images/img_two_blue.png', label: '短牌', blinds: '200/400', tables: '98桌', players: '970人' },
+  { image: b + 'images/img_four_cards.png', label: '奥马哈', blinds: '200/400', tables: '210桌', players: '2540人' },
 ]
 
 const texasGames = [
-  { image: '/images/img_two_purple.png', label: '德州扑克', blinds: '100/200', tables: '306桌', players: '3406人' },
-  { image: '/images/img_two_purple.png', label: '德州扑克', blinds: '200/400', tables: '152桌', players: '1820人' },
+  { image: b + 'images/img_two_purple.png', label: '德州扑克', blinds: '100/200', tables: '306桌', players: '3406人' },
+  { image: b + 'images/img_two_purple.png', label: '德州扑克', blinds: '200/400', tables: '152桌', players: '1820人' },
 ]
 
 const omahaGames = [
-  { image: '/images/img_four_cards.png', label: '奥马哈', blinds: '100/200', tables: '210桌', players: '2540人' },
-  { image: '/images/img_four_cards.png', label: '奥马哈', blinds: '200/400', tables: '130桌', players: '1680人' },
-  { image: '/images/img_four_cards.png', label: '奥马哈', blinds: '500/1000', tables: '76桌', players: '920人' },
-  { image: '/images/img_four_cards.png', label: '奥马哈', blinds: '1000/2000', tables: '42桌', players: '510人' },
-  { image: '/images/img_four_cards.png', label: '奥马哈', blinds: '2000/4000', tables: '28桌', players: '340人' },
+  { image: b + 'images/img_four_cards.png', label: '奥马哈', blinds: '100/200', tables: '210桌', players: '2540人' },
+  { image: b + 'images/img_four_cards.png', label: '奥马哈', blinds: '200/400', tables: '130桌', players: '1680人' },
+  { image: b + 'images/img_four_cards.png', label: '奥马哈', blinds: '500/1000', tables: '76桌', players: '920人' },
+  { image: b + 'images/img_four_cards.png', label: '奥马哈', blinds: '1000/2000', tables: '42桌', players: '510人' },
+  { image: b + 'images/img_four_cards.png', label: '奥马哈', blinds: '2000/4000', tables: '28桌', players: '340人' },
 ]
 
 const sixPlusGames = [
-  { image: '/images/img_two_blue.png', label: '短牌', blinds: '100/200', tables: '98桌', players: '970人' },
-  { image: '/images/img_two_blue.png', label: '短牌', blinds: '200/400', tables: '56桌', players: '620人' },
-  { image: '/images/img_two_blue.png', label: '短牌', blinds: '500/1000', tables: '32桌', players: '380人' },
+  { image: b + 'images/img_two_blue.png', label: '短牌', blinds: '100/200', tables: '98桌', players: '970人' },
+  { image: b + 'images/img_two_blue.png', label: '短牌', blinds: '200/400', tables: '56桌', players: '620人' },
+  { image: b + 'images/img_two_blue.png', label: '短牌', blinds: '500/1000', tables: '32桌', players: '380人' },
 ]
 
 const tabGames = [allGames, texasGames, omahaGames, sixPlusGames]

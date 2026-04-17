@@ -10,13 +10,13 @@ defineEmits(['back'])
 <template>
   <header class="appbar">
     <button class="appbar__title" @click="$emit('back')">
-      <img src="/icons/ic_arrow_left.svg" alt="back" class="appbar__back" />
+      <img :src="$base + 'icons/ic_arrow_left.svg'" alt="back" class="appbar__back" />
       <span class="t-title">{{ title }}</span>
     </button>
 
     <div class="appbar__actions">
-      <PillButton label="充值" icon="/icons/ic_wallet.svg" />
-      <PillButton label="客服" icon="/icons/ic_support.svg" />
+      <PillButton label="充值" :icon="$base + 'icons/ic_wallet.svg'" />
+      <PillButton label="客服" :icon="$base + 'icons/ic_support.svg'" />
     </div>
   </header>
 </template>

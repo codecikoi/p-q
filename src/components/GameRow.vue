@@ -52,11 +52,11 @@ function onAfterLeave(el) {
         <p class="t-body">盲注 &nbsp;{{ blinds }}</p>
         <div class="row__stats">
           <span class="row__stat">
-            <img src="/icons/ic_table.svg" alt="" class="row__icon" />
+            <img :src="$base + 'icons/ic_table.svg'" alt="" class="row__icon" />
             <span class="t-body">{{ tables }}</span>
           </span>
           <span class="row__stat">
-            <img src="/icons/ic_users.svg" alt="" class="row__icon" />
+            <img :src="$base + 'icons/ic_users.svg'" alt="" class="row__icon" />
             <span class="t-body">{{ players }}</span>
           </span>
         </div>
@@ -64,7 +64,7 @@ function onAfterLeave(el) {
 
       <button class="row__toggle" @click="$emit('toggle')">
         <img
-          :src="expanded ? '/icons/ic_drop_up.svg' : '/icons/ic_drop_down.svg'"
+          :src="$base + (expanded ? 'icons/ic_drop_up.svg' : 'icons/ic_drop_down.svg')"
           alt=""
           class="row__arrow"
         />

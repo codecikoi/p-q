@@ -5,4 +5,6 @@ import './styles/text.css'
 
 import App from './App.vue'
 
-createApp(App).mount('#app')
+const app = createApp(App)
+app.config.globalProperties.$base = import.meta.env.BASE_URL
+app.mount('#app')

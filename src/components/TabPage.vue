@@ -41,7 +41,7 @@ watch(() => props.modelValue, (v) => {
   <div class="tabpage">
     <div class="tabpage__bar">
       <img
-        src="/icons/tab-select.svg"
+        :src="$base + 'icons/tab-select.svg'"
         alt=""
         class="tabpage__indicator"
         :style="indicatorStyle"
