@@ -5,4 +5,5 @@ export default defineConfig({
   plugins: [vue()],
   publicDir: 'assets',
   base: '/p-q/',
+  build: { outDir: 'docs' },
 })
