@@ -20,7 +20,8 @@ const rows = [
 ]
 
 function close() {
-  router.push('/records')
+  if (window.history.state?.back) router.back()
+  else router.push('/records')
 }
 </script>
 

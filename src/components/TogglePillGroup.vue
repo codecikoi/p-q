@@ -28,6 +28,7 @@ const emit = defineEmits(['update:modelValue'])
 }
 
 .tpg__pill {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -38,12 +39,25 @@ const emit = defineEmits(['update:modelValue'])
   -webkit-backdrop-filter: blur(22.4px);
   cursor: pointer;
   white-space: nowrap;
-  border: 0.6px solid rgba(242, 242, 242, 0.8);
+  border: none;
+}
+
+.tpg__pill::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(139deg, rgba(255, 255, 255, 0.62) 0%, rgba(255, 255, 255, 0) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+          mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
 }
 
 .tpg__pill--active {
   background: var(--grad-primary);
-  border-color: rgba(255, 255, 255, 0.44);
   box-shadow: 3.9px 2.7px 10.2px rgba(110, 2, 2, 0.27);
 }
 

@@ -36,12 +36,14 @@ defineProps({
   text-align: left;
   width: 100%;
   cursor: pointer;
+  box-shadow: none;
 }
 
 .record__col {
   display: flex;
   flex: 1;
   flex-direction: column;
+  align-items: flex-start;
   gap: clamp(4px, 1.3vw, 5px);
   justify-content: center;
   min-width: 0;
