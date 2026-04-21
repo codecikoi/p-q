@@ -18,7 +18,8 @@ defineProps({
   background: #fff;
   border-radius: clamp(18px, 6.3vw, 23.8px);
   padding: clamp(4px, 1.5vw, 5.2px) clamp(3px, 1vw, 3.6px);
-  min-width: clamp(68px, 21.4vw, 80px);
+  min-width: 0;
+  max-width: 100%;
 }
 
 .chip__amount {

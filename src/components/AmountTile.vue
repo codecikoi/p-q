@@ -31,11 +31,13 @@ defineProps({
   align-items: center;
   justify-content: space-between;
   aspect-ratio: 1 / 1;
-  padding: clamp(14px, 4.8vw, 18px) clamp(7px, 2.75vw, 10.3px) clamp(8px, 2.85vw, 10.7px);
+  padding: clamp(12px, 4.8vw, 18px) clamp(5px, 2.75vw, 10.3px) clamp(6px, 2.85vw, 10.7px);
   background: rgba(0, 0, 0, 0.12);
   border-radius: clamp(18px, 6.4vw, 24px);
   width: 100%;
+  min-width: 0;
   cursor: pointer;
+  overflow: hidden;
 }
 
 .tile--active {
@@ -56,21 +58,26 @@ defineProps({
 .tile__head {
   display: flex;
   align-items: center;
-  gap: clamp(2px, 0.7vw, 2.6px);
-  margin-top: 12px;
+  gap: clamp(1px, 0.7vw, 2.6px);
+  margin-top: clamp(4px, 3.6vw, 12px);
+  min-width: 0;
+  max-width: 100%;
 }
 
 .tile__icon {
-  width: clamp(14px, 4.8vw, 18px);
-  height: clamp(14px, 4.8vw, 18px);
+  width: clamp(9px, 3.6vw, 18px);
+  height: clamp(9px, 3.6vw, 18px);
+  flex-shrink: 0;
 }
 
 .tile__amount {
   font-family: "SF Pro", var(--font-num);
   font-weight: 700;
-  font-size: clamp(14.4px, 4.8vw, 16px);
+  font-size: clamp(9px, 3.4vw, 16px);
   color: #f9f9f9;
   line-height: 1.4;
+  white-space: nowrap;
+  min-width: 0;
 }
 
 .tile__chip {

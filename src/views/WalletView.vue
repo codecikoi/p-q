@@ -65,7 +65,7 @@ const methods = [
       >
         <template #actions>
           <GlassButton label="记录" @click="router.push('/records')" />
-          <GlassButton label="明细" @click="router.push('/records')" />
+          <GlassButton label="明细" @click="router.push('/wallet/history')" />
         </template>
         <template #extra>
           <div class="balance-row">

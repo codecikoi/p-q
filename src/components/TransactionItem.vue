@@ -53,6 +53,8 @@ defineProps({
   display: flex;
   flex-direction: column;
   gap: clamp(8px, 2.7vw, 10px);
+  background: rgba(0, 0, 0, 0.14 );
+  box-shadow: none;
 }
 
 .tx__head {
@@ -71,6 +73,7 @@ defineProps({
   flex: 1;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: clamp(2px, 0.8vw, 3px);
   min-width: 0;
 }
@@ -114,8 +117,8 @@ defineProps({
 
 .tx__divider {
   width: 100%;
-  height: 0.5px;
-  background: rgba(255, 255, 255, 0.3);
+  height: 0;
+  border-top: 1px dashed rgba(255, 255, 255, 0.3);
 }
 
 .tx__foot {

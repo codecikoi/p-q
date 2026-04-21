@@ -8,11 +8,12 @@ defineProps({
   balance: { type: [String, Number], default: '' },
   variant: { type: String, default: 'compact' },
 })
+
+const bannerBg = `url(${import.meta.env.BASE_URL}images/banner_bg.png)`
 </script>
 
 <template>
   <div class="usercard" :class="`usercard--${variant}`">
-    <div class="usercard__bg" />
     <div class="usercard__head">
       <img :src="avatar" alt="" class="usercard__avatar" />
       <div class="usercard__info">
@@ -52,10 +53,7 @@ defineProps({
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: 1.25px solid rgba(255, 255, 255, 0.8);
-  box-shadow: 0 0 8.5px 0 #000 inset,
-    0 0 36px 6px rgba(242, 242, 242, 0.3) inset,
-    3.4px 2.5px 8.5px 0 rgba(0, 0, 0, 0.1) inset;
+  background: v-bind(bannerBg) center / 100% 100% no-repeat;
 }
 
 .usercard--compact {
@@ -63,19 +61,6 @@ defineProps({
   border-radius: clamp(22px, 8vw, 29.2px);
 }
 
-.usercard--expanded::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  backdrop-filter: blur(19px);
-  -webkit-backdrop-filter: blur(19px);
-  background: rgba(0, 0, 0, 0.35);
-  border-radius: inherit;
-  mix-blend-mode: hard-light;
-  background-image: linear-gradient(110.6deg, rgba(249, 249, 249, 0.18) 12%, rgba(249, 249, 249, 0.24) 33%, rgba(147, 147, 147, 0.3) 85%);
-  pointer-events: none;
-  z-index: 0;
-}
 
 .usercard__head {
   position: relative;
@@ -85,12 +70,17 @@ defineProps({
   gap: clamp(8px, 2.85vw, 10.7px);
 }
 
+.usercard--expanded .usercard__head {
+  gap: clamp(16px, 5.7vw, 21.4px);
+}
+
 .usercard__avatar {
   width: clamp(52px, 17.1vw, 65px);
   height: clamp(52px, 17.1vw, 65px);
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
+  margin-left: 4%;
 }
 
 .usercard--expanded .usercard__avatar {
@@ -154,7 +144,7 @@ defineProps({
   justify-content: flex-end;
   gap: clamp(3px, 1.1vw, 4.2px);
   color: #f9f9f9;
-  padding-right: clamp(18px, 6.5vw, 24px);
+  padding-right: clamp(14px, 4.8vw, 18px);
 }
 
 .usercard__balance-label {
