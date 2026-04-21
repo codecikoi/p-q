@@ -1,6 +1,7 @@
 :root {
   --font-cn: "HONOR Sans CN", "PingFang SC", system-ui, sans-serif;
   --font-num: "Poppins", "SF Pro Display", system-ui, sans-serif;
+  --font-display: "Keania One", system-ui, sans-serif;
 
   --text-shadow-title: 0 3px 6.6px rgba(0, 0, 0, 0.25);
   --text-shadow-soft: 0 1px 4px rgba(0, 0, 0, 0.32);
