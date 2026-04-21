@@ -1,0 +1,24 @@
+<script setup>
+defineProps({
+  tag: { type: String, default: 'div' },
+  radius: { type: String, default: 'clamp(28px, 10vw, 37.4px)' },
+  padding: { type: String, default: 'clamp(12px, 4vw, 15px) clamp(20px, 7.5vw, 28px)' },
+})
+</script>
+
+<template>
+  <component :is="tag" class="glass-card" :style="{ borderRadius: radius, padding: padding }">
+    <slot />
+  </component>
+</template>
+
+<style scoped>
+.glass-card {
+  position: relative;
+  backdrop-filter: blur(16.5px);
+  -webkit-backdrop-filter: blur(16.5px);
+  background: var(--glass-bg);
+  border: 0.633px solid var(--glass-border);
+  box-shadow: 3.4px 4.3px 6.8px rgba(0, 0, 0, 0.25);
+}
+</style>

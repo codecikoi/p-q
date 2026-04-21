@@ -4,7 +4,9 @@ import './styles/base.css'
 import './styles/text.css'
 
 import App from './App.vue'
+import { router } from './router'
 
 const app = createApp(App)
+app.use(router)
 app.config.globalProperties.$base = import.meta.env.BASE_URL
 app.mount('#app')
