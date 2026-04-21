@@ -140,8 +140,7 @@ const methods = [
 .presets-card {
   position: relative;
   padding: clamp(20px, 7vw, 25px) clamp(14px, 4.8vw, 18px) clamp(16px, 5.5vw, 20px);
-  background: rgba(0, 0, 0, 0.01); 
-  /* background: rgba(200, 200, 200, 0.01);  */
+  background: rgba(0, 0, 0, 0.01);
   backdrop-filter: blur(16.6px);
   -webkit-backdrop-filter: blur(16.6px);
   border: 0.18px solid rgba(255, 255, 255, 0.3);
